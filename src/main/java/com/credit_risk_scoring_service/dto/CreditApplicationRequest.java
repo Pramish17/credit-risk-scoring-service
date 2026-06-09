@@ -9,30 +9,30 @@ import lombok.Data;
 @Data
 public class CreditApplicationRequest {
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Annual income is required")
+    @Positive(message = "Annual income must be positive")
     private Double annualIncome;
 
-    @NotNull
+    @NotNull(message = "Existing Debt Amount is required")
     @Min(0)
     private Double existingDebtAmount;
 
-    @NotNull
+    @NotNull(message = "Monthly Debt Payment is required")
     @Min(0)
     private Double monthlyDebtPayments;
 
-    @NotNull
+    @NotNull(message = "Missed Payment is required")
     @Min(0)
     private Integer missedPayments;
 
-    @NotNull
+    @NotNull(message = "Credit History Month is required")
     @Min(0)
     private Integer creditHistoryMonths;
 
-    @NotNull
+    @NotNull(message = "Employment status is required")
     private EmploymentStatus employmentStatus;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Requested amount is required")
+    @Positive(message = "Requested amount must be positive")
     private Double requestedAmount;
 }
