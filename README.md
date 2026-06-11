@@ -136,7 +136,7 @@ Returns score 80, decision DECLINE, with all contributing factors listed in `dec
 - **Production database** via Cloud SQL (GCP) or RDS (AWS), replacing the H2 in-memory store.
 - **JWT authentication** using Spring Security to secure the API endpoints.
 - **ML scoring model** as an alternative to the rules engine: a Random Forest model (consistent with my MSc dissertation work) could replace or complement the rules, while the explainability layer remains, since regulators require it regardless of the model type.
-
+- **Bean validation messages:** field-level validation error messages added to all DTO fields for human-readable 400 responses.
 ---
 
 ## Author
