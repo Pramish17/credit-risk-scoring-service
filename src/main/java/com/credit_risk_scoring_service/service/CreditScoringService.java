@@ -10,8 +10,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class CreditScoringService {
+
+
+    private static final int BASE_SCORE = 500;
+    private static final int APPROVE_THRESHOLD = 650;
+    private static final int REVIEW_THRESHOLD = 500;
 
     private final CreditApplicationRepository repository;
 
@@ -21,7 +27,7 @@ public class CreditScoringService {
 
     public CreditApplication evaluate(CreditApplicationRequest request) {
 
-        int score = 500; // base score
+        int score = BASE_SCORE; // base score
         List<String> reasons = new ArrayList<>();
 
         // Rule 1: Debt-to-income ratio
@@ -91,7 +97,7 @@ public class CreditScoringService {
         CreditDecision decision;
         if (score >= 650) {
             decision = CreditDecision.APPROVE;
-        } else if (score >= 500) {
+        } else if (score >= REVIEW_THRESHOLD) {
             decision = CreditDecision.REVIEW;
         } else {
             decision = CreditDecision.DECLINE;
