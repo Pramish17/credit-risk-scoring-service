@@ -130,14 +130,13 @@ Returns score 80, decision DECLINE, with all contributing factors listed in `dec
 
 ---
 
-## Planned extensions
+## Planned Extensions
 
-- **JUnit / Mockito test suite** targeting 95%+ coverage on the scoring rules engine, consistent with production quality standards from my Equifax work.
-- **Production database** via Cloud SQL (GCP) or RDS (AWS), replacing the H2 in-memory store.
-- **JWT authentication** using Spring Security to secure the API endpoints.
-- **ML scoring model** as an alternative to the rules engine: a Random Forest model (consistent with my MSc dissertation work) could replace or complement the rules, while the explainability layer remains, since regulators require it regardless of the model type.
-- **Bean validation messages:** field-level validation error messages added to all DTO fields for human-readable 400 responses.
----
+- **JUnit / Mockito test suite** targeting 95%+ coverage on the scoring rules engine.
+- **PostgreSQL** replacing H2 in-memory store for production-ready persistence.
+- **JWT authentication** securing the API endpoints via Spring Security.
+- **ML scoring model** replacing the rules engine with a Random Forest model, maintaining the explainability layer for regulatory compliance.
+- **Scoring constants** extracted to named fields (BASE_SCORE, APPROVE_THRESHOLD, REVIEW_THRESHOLD) for easier configuration.
 
 ## Author
 
